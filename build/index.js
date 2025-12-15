@@ -4,7 +4,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { ListPromptsRequestSchema, GetPromptRequestSchema, } from "@modelcontextprotocol/sdk/types.js";
 import { z } from "zod";
 const PROMPTS_CHAT_API = "https://prompts.chat/api/mcp";
-const USER_AGENT = "prompts-chat-mcp/1.0.4";
+const USER_AGENT = "prompts-chat-mcp/1.0.5";
 async function callPromptsChatMcp(method, params) {
     const response = await fetch(PROMPTS_CHAT_API, {
         method: "POST",
@@ -22,6 +22,21 @@ async function callPromptsChatMcp(method, params) {
     });
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const contentType = response.headers.get("content-type") || "";
+    // Handle SSE response format
+    if (contentType.includes("text/event-stream")) {
+        const text = await response.text();
+        const lines = text.split("\n");
+        for (const line of lines) {
+            if (line.startsWith("data: ")) {
+                const jsonStr = line.slice(6);
+                if (jsonStr.trim()) {
+                    return JSON.parse(jsonStr);
+                }
+            }
+        }
+        throw new Error("No valid JSON data found in SSE response");
     }
     return (await response.json());
 }
