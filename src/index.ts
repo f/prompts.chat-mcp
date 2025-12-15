@@ -8,7 +8,7 @@ import {
 import { z } from "zod";
 
 const PROMPTS_CHAT_API = "https://prompts.chat/api/mcp";
-const USER_AGENT = "prompts-chat-mcp/1.0.2";
+const USER_AGENT = "prompts-chat-mcp/1.0.3";
 
 interface McpResponse {
   jsonrpc: string;
