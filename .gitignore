@@ -1,0 +1,8 @@
+.mcpregistry_github_token
+.mcpregistry_registry_token
+node_modules/
+build/
+*.tgz
+.env
+.DS_Store
+*.log

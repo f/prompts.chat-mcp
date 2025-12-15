@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "io.github.f/prompts.chat-mcp",
+  "description": "A MCP server for prompts.chat",
+  "repository": {
+    "url": "https://github.com/f/prompts.chat-mcp",
+    "source": "github"
+  },
+  "version": "1.0.2",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@fkadev/prompts.chat-mcp",
+      "version": "1.0.1",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://prompts.chat/api/mcp"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@fkadev/prompts.chat-mcp",
+  "mcpName": "io.github.f/prompts.chat-mcp",
+  "version": "1.0.2",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "prompts-chat-mcp": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\""
+  },
+  "files": [
+    "build"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/f/prompts.chat-mcp.git"
+  },
+  "description": "A MCP server for prompts.chat",
+  "devDependencies": {
+    "@types/node": "^22.19.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.24.3",
+    "zod": "^3.24.0"
+  }
+}
