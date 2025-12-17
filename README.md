@@ -165,12 +165,39 @@ Add this to your Zed `settings.json`:
 
 </details>
 
+## ⚙️ Configuration
+
+The local server supports the following environment variables:
+
+| Variable | Description |
+|----------|-------------|
+| `PROMPTS_API_KEY` | Optional API key for authenticated requests |
+| `PROMPTS_QUERY` | Optional query string to filter prompts (e.g., `users=a,b&categories=c,d&tags=e,f`) |
+
+### Example with Environment Variables
+
+```json
+{
+  "mcpServers": {
+    "prompts-chat": {
+      "command": "npx",
+      "args": ["-y", "@fkadev/prompts.chat-mcp"],
+      "env": {
+        "PROMPTS_API_KEY": "your-api-key",
+        "PROMPTS_QUERY": "users=username&categories=coding&tags=productivity"
+      }
+    }
+  }
+}
+```
+
 ## 🔨 Available Tools
 
 | Tool | Description |
 |------|-------------|
 | `search_prompts` | Search for AI prompts by keyword. Supports filtering by type, category, and tag. |
 | `get_prompt` | Get a prompt by ID. Supports variable elicitation for prompts with template variables. |
+| `save_prompt` | Save a new prompt to your account. **Requires `PROMPTS_API_KEY`.** |
 
 ## 📚 MCP Prompts
 

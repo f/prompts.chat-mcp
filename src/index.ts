@@ -7,8 +7,14 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import { z } from "zod";
 
-const PROMPTS_CHAT_API = "https://prompts.chat/api/mcp";
-const USER_AGENT = "prompts-chat-mcp/1.0.5";
+const PROMPTS_CHAT_API_BASE = "https://prompts.chat/api/mcp";
+const USER_AGENT = "prompts-chat-mcp/1.0.6";
+const PROMPTS_API_KEY = process.env.PROMPTS_API_KEY;
+const PROMPTS_QUERY = process.env.PROMPTS_QUERY;
+
+const PROMPTS_CHAT_API = PROMPTS_QUERY
+  ? `${PROMPTS_CHAT_API_BASE}?${PROMPTS_QUERY}`
+  : PROMPTS_CHAT_API_BASE;
 
 interface McpResponse {
   jsonrpc: string;
@@ -27,6 +33,7 @@ async function callPromptsChatMcp(
       "Content-Type": "application/json",
       Accept: "application/json, text/event-stream",
       "User-Agent": USER_AGENT,
+      ...(PROMPTS_API_KEY && { "PROMPTS-API-KEY": PROMPTS_API_KEY }),
     },
     body: JSON.stringify({
       jsonrpc: "2.0",
@@ -65,7 +72,7 @@ async function callPromptsChatMcp(
 const server = new McpServer(
   {
     name: "prompts-chat",
-    version: "1.0.1",
+    version: "1.0.6",
   },
   {
     capabilities: {

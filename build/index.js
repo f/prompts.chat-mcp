@@ -4,7 +4,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { ListPromptsRequestSchema, GetPromptRequestSchema, } from "@modelcontextprotocol/sdk/types.js";
 import { z } from "zod";
 const PROMPTS_CHAT_API = "https://prompts.chat/api/mcp";
-const USER_AGENT = "prompts-chat-mcp/1.0.5";
+const USER_AGENT = "prompts-chat-mcp/1.0.6";
 async function callPromptsChatMcp(method, params) {
     const response = await fetch(PROMPTS_CHAT_API, {
         method: "POST",
