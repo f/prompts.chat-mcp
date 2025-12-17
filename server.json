@@ -14,12 +14,12 @@
     "url": "https://github.com/f/prompts.chat-mcp",
     "source": "github"
   },
-  "version": "1.0.8",
+  "version": "1.0.9",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "@fkadev/prompts.chat-mcp",
-      "version": "1.0.8",
+      "version": "1.0.9",
       "transport": {
         "type": "stdio"
       },
