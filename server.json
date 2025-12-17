@@ -1,5 +1,5 @@
 {
-  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
   "name": "io.github.f/prompts.chat-mcp",
   "title": "prompts.chat MCP Server",
   "description": "Search and retrieve AI prompts from prompts.chat, the social platform for AI prompts.",
@@ -14,12 +14,12 @@
     "url": "https://github.com/f/prompts.chat-mcp",
     "source": "github"
   },
-  "version": "1.0.7",
+  "version": "1.0.8",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "@fkadev/prompts.chat-mcp",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "transport": {
         "type": "stdio"
       },

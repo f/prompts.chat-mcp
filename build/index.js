@@ -4,7 +4,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { ListPromptsRequestSchema, GetPromptRequestSchema, } from "@modelcontextprotocol/sdk/types.js";
 import { z } from "zod";
 const PROMPTS_CHAT_API_BASE = "https://prompts.chat/api/mcp";
-const USER_AGENT = "prompts-chat-mcp/1.0.7";
+const USER_AGENT = "prompts-chat-mcp/1.0.8";
 const PROMPTS_API_KEY = process.env.PROMPTS_API_KEY;
 const PROMPTS_QUERY = process.env.PROMPTS_QUERY;
 const PROMPTS_CHAT_API = PROMPTS_QUERY
@@ -48,7 +48,7 @@ async function callPromptsChatMcp(method, params) {
 }
 const server = new McpServer({
     name: "prompts-chat",
-    version: "1.0.7",
+    version: "1.0.8",
 }, {
     capabilities: {
         prompts: { listChanged: false },
