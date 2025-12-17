@@ -22,7 +22,21 @@
       "version": "1.0.7",
       "transport": {
         "type": "stdio"
-      }
+      },
+      "environmentVariables": [
+        {
+          "name": "PROMPTS_API_KEY",
+          "description": "API key for authenticated requests (enables save_prompt tool)",
+          "isRequired": false,
+          "isSecret": true
+        },
+        {
+          "name": "PROMPTS_QUERY",
+          "description": "Query string to filter prompts (e.g., users=a,b&categories=c,d&tags=e,f)",
+          "isRequired": false,
+          "isSecret": false
+        }
+      ]
     }
   ]
 }

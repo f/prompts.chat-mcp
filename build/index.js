@@ -3,8 +3,13 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { ListPromptsRequestSchema, GetPromptRequestSchema, } from "@modelcontextprotocol/sdk/types.js";
 import { z } from "zod";
-const PROMPTS_CHAT_API = "https://prompts.chat/api/mcp";
+const PROMPTS_CHAT_API_BASE = "https://prompts.chat/api/mcp";
 const USER_AGENT = "prompts-chat-mcp/1.0.7";
+const PROMPTS_API_KEY = process.env.PROMPTS_API_KEY;
+const PROMPTS_QUERY = process.env.PROMPTS_QUERY;
+const PROMPTS_CHAT_API = PROMPTS_QUERY
+    ? `${PROMPTS_CHAT_API_BASE}?${PROMPTS_QUERY}`
+    : PROMPTS_CHAT_API_BASE;
 async function callPromptsChatMcp(method, params) {
     const response = await fetch(PROMPTS_CHAT_API, {
         method: "POST",
@@ -12,6 +17,7 @@ async function callPromptsChatMcp(method, params) {
             "Content-Type": "application/json",
             Accept: "application/json, text/event-stream",
             "User-Agent": USER_AGENT,
+            ...(PROMPTS_API_KEY && { "PROMPTS-API-KEY": PROMPTS_API_KEY }),
         },
         body: JSON.stringify({
             jsonrpc: "2.0",
@@ -42,7 +48,7 @@ async function callPromptsChatMcp(method, params) {
 }
 const server = new McpServer({
     name: "prompts-chat",
-    version: "1.0.1",
+    version: "1.0.7",
 }, {
     capabilities: {
         prompts: { listChanged: false },
