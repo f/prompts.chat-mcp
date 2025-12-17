@@ -8,7 +8,7 @@ import {
 import { z } from "zod";
 
 const PROMPTS_CHAT_API_BASE = "https://prompts.chat/api/mcp";
-const USER_AGENT = "prompts-chat-mcp/1.0.6";
+const USER_AGENT = "prompts-chat-mcp/1.0.7";
 const PROMPTS_API_KEY = process.env.PROMPTS_API_KEY;
 const PROMPTS_QUERY = process.env.PROMPTS_QUERY;
 
@@ -72,7 +72,7 @@ async function callPromptsChatMcp(
 const server = new McpServer(
   {
     name: "prompts-chat",
-    version: "1.0.6",
+    version: "1.0.7",
   },
   {
     capabilities: {
