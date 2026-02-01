@@ -219,7 +219,7 @@ Get the prompt for "act as a linux terminal"
 
 - [prompts.chat](https://prompts.chat) - Browse all prompts
 - [API Documentation](https://prompts.chat/docs/api) - API reference
-- [GitHub](https://github.com/f/awesome-chatgpt-prompts) - Source repository
+- [GitHub](https://github.com/f/prompts.chat) - Source repository
 
 ## 📄 License
 
